@@ -39,10 +39,12 @@ class PhoneControllerTest {
     void testCreatePhone() throws Exception {
         CreatePhoneDto createPhoneDto = new CreatePhoneDto();
         createPhoneDto.setNumber(PHONE_NUMBER);
+        createPhoneDto.setName(PHONE_NAME);
 
         PhoneDto phoneDto = new PhoneDto();
         phoneDto.setId(PHONE_ID);
         phoneDto.setNumber(PHONE_NUMBER);
+        phoneDto.setName(PHONE_NAME);
 
         when(mockPhoneService.create(any(CreatePhoneDto.class))).thenReturn(phoneDto);
 
