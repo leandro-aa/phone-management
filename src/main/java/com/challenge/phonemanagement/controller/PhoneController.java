@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,7 +31,7 @@ public class PhoneController {
             @ApiResponse(responseCode = "400", description = "The number is invalid", content = @Content),
             @ApiResponse(responseCode = "409", description = "The phone number already exists", content = @Content)})
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody CreatePhoneDto phoneDto) {
+    public ResponseEntity<Void> create(@Valid @RequestBody CreatePhoneDto phoneDto) {
         PhoneDto createdRecord = phoneService.create(phoneDto);
 
         //Create resource location
